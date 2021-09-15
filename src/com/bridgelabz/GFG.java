@@ -1,37 +1,26 @@
 package com.bridgelabz;
 
-import java.io.*;
+import java.util.Scanner;
 
 class Main {
-
-    // Function to find n terms
-    // of series
-    static void findSeries(int num,int first, int sec)
-    {
-
-        System.out.print(first + " "+
-                + sec + " ");
-        int counter = 0, sum;
-
-        // find next (num - 2) terms
-        // of series as first two
-        // terms are already given
-        while (counter < num - 2)
-        {
-            sum = first + sec;
-            System.out.print( sum + " ");
-            first = sec;
-            sec = sum;
-            counter++;
+    public static void main(String[] args) {
+        long sum = 0;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a number : ");
+        int n = (int) sc.nextLong();
+        int i = 1;
+        while (i <= n / 2) {
+            if (n % i == 0) {
+                sum += i;
+            }
+            i++;
         }
-    }
-
-    // Drivers code
-    public static void main (String[] args)
-    {
-        int n = 5, first = 2, sec = 4;
-//GG
-        findSeries(n, first, sec);
+        if (sum == n) {
+            System.out.println(n + " is a perfect number");
+        } else
+            System.out.println(n + " is not a  perfect number");
     }
 }
+
+
 
